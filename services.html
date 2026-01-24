@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services – WebMotic</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,12 +23,25 @@
 
 <section class="page">
   <h2 data-aos="fade-down">Nos services</h2>
-  <ul data-aos="fade-up">
-    <li>Création de sites vitrines</li>
-    <li>Boutiques e-commerce</li>
-    <li>Landing pages</li>
-    <li>Refonte et optimisation</li>
-  </ul>
+
+  <div class="features">
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Sites vitrines</h3>
+      <p>Création de sites élégants pour présenter votre activité.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <h3>Boutiques e-commerce</h3>
+      <p>Mise en place de boutiques en ligne optimisées pour vendre.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="500">
+      <h3>Landing pages</h3>
+      <p>Pages ciblées pour vos campagnes marketing et conversions.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="700">
+      <h3>Refonte et optimisation</h3>
+      <p>Amélioration de l’existant pour plus de performance et design.</p>
+    </div>
+  </div>
 </section>
 
 <footer class="footer" data-aos="fade-in">
@@ -46,7 +60,11 @@
     </div>
     <div class="footer-contact">
       <h4>Contact</h4>
-      <p>contact@webmotic.com</p>
+      <p>
+        <a href="mailto:contact@webmotic.com" class="contact-email">
+          contact@webmotic.com
+        </a>
+      </p>
       <p>Réponse sous 24h</p>
     </div>
   </div>
@@ -60,4 +78,4 @@
 </script>
 
 </body>
-  </html>
+      </html>
