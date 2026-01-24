@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>WebMotic – Agence Web</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>WebMotic – Agence Web</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 
 <header>
-  <h1 class="logo">WebMotic</h1>
-  <nav>
+  <h1 class="logo" data-aos="fade-right">WebMotic</h1>
+  <nav data-aos="fade-down">
     <a href="index.html">Accueil</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
@@ -19,34 +21,32 @@
 </header>
 
 <section class="hero">
-  <h2>Agence de création de sites web modernes</h2>
-  <p>Design premium – Performance – Simplicité</p>
-  <a class="btn" href="devis.html">Demander un devis</a>
+  <h2 data-aos="fade-down" data-aos-delay="200">Agence de création de sites web modernes</h2>
+  <p data-aos="fade-up" data-aos-delay="400">Design premium – Performance – Simplicité</p>
+  <a class="btn" href="devis.html" data-aos="zoom-in" data-aos-delay="600">Demander un devis</a>
 </section>
 
 <section class="features">
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="100">
     <h3>Design Premium</h3>
     <p>Un rendu élégant et professionnel.</p>
   </div>
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="300">
     <h3>Sites rapides</h3>
     <p>Optimisés pour le référencement et la performance.</p>
   </div>
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="500">
     <h3>Sur mesure</h3>
     <p>Chaque projet est unique.</p>
   </div>
 </section>
 
-<footer class="footer">
+<footer class="footer" data-aos="fade-in">
   <div class="footer-container">
-
     <div class="footer-brand">
       <h3>WebMotic</h3>
       <p>Agence de création de sites web modernes</p>
     </div>
-
     <div class="footer-links">
       <h4>Navigation</h4>
       <a href="index.html">Accueil</a>
@@ -55,20 +55,26 @@
       <a href="devis.html">Devis</a>
       <a href="contact.html">Contact</a>
     </div>
-
     <div class="footer-contact">
       <h4>Contact</h4>
       <p>contact@webmotic.com</p>
       <p>Réponse sous 24h</p>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © 2026 – WebMotic · Design · Performance · Simplicité
   </div>
 </footer>
 
 <script src="style.js"></script>
+<script>
+  // Initialisation du moteur d'animation
+  AOS.init({
+    duration: 1000, // Durée de l'animation : 1 seconde
+    once: true,     // L'animation ne se joue qu'une seule fois
+    offset: 100     // L'animation déclenche 100px avant d'arriver sur l'élément
+  });
+</script>
 </body>
-  </html>
+    </html>
+      
