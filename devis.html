@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Devis – WebMotic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+
+  <!-- AOS animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
+
 <body>
 
 <header>
@@ -20,50 +24,55 @@
   </nav>
 </header>
 
-<section class="page">
+<section class="page" data-aos="fade-up">
   <h2 data-aos="fade-down">Demande de devis</h2>
-  <p data-aos="fade-up">Expliquez-nous votre projet. Nous vous répondrons sous 24h.</p>
+  <p data-aos="fade-up" data-aos-delay="200">
+    Expliquez-nous votre projet. Nous vous répondrons sous 24h.
+  </p>
 
-  <form 
-    action="https://formspree.io/f/mzdekjea" 
-    method="POST"
-    class="form-devis"
-    data-aos="zoom-in"
-  >
+  <div class="form-card" data-aos="zoom-in">
 
-    <label>Nom</label>
-    <input type="text" name="nom" placeholder="Votre nom" required>
+    <form 
+      action="https://formspree.io/f/mzdekjea" 
+      method="POST"
+      class="form-devis"
+    >
 
-    <label>Email</label>
-    <input type="email" name="email" placeholder="Votre email" required>
+      <label>Nom</label>
+      <input type="text" name="nom" placeholder="Votre nom" required>
 
-    <label>Nom de l’entreprise (optionnel)</label>
-    <input type="text" name="entreprise" placeholder="Nom de votre société">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Votre email" required>
 
-    <label>Type de projet</label>
-    <select name="type_projet" required>
-      <option value="">-- Choisissez --</option>
-      <option>Site vitrine</option>
-      <option>Boutique en ligne</option>
-      <option>Landing page</option>
-      <option>Refonte de site</option>
-      <option>Autre</option>
-    </select>
+      <label>Nom de l’entreprise (optionnel)</label>
+      <input type="text" name="entreprise" placeholder="Nom de votre société">
 
-    <label>Budget estimé</label>
-    <select name="budget">
-      <option>Moins de 300€</option>
-      <option>300 – 800€</option>
-      <option>800 – 1500€</option>
-      <option>1500€+</option>
-    </select>
+      <label>Type de projet</label>
+      <select name="type_projet" required>
+        <option value="">-- Choisissez --</option>
+        <option>Site vitrine</option>
+        <option>Boutique en ligne</option>
+        <option>Landing page</option>
+        <option>Refonte de site</option>
+        <option>Autre</option>
+      </select>
 
-    <label>Description du projet</label>
-    <textarea name="message" rows="6" placeholder="Décrivez votre projet..." required></textarea>
+      <label>Budget estimé</label>
+      <select name="budget">
+        <option>Moins de 300€</option>
+        <option>300 – 800€</option>
+        <option>800 – 1500€</option>
+        <option>1500€+</option>
+      </select>
 
-    <button type="submit">Envoyer ma demande</button>
+      <label>Description du projet</label>
+      <textarea name="message" rows="6" placeholder="Décrivez votre projet..." required></textarea>
 
-  </form>
+      <button type="submit">Envoyer ma demande</button>
+
+    </form>
+
+  </div>
 </section>
 
 <footer class="footer" data-aos="fade-in">
@@ -85,7 +94,7 @@
 
     <div class="footer-contact">
       <h4>Contact</h4>
-      <p>contact@webmotic.com</p>
+      <p><a href="mailto:contact@webmotic.com">contact@webmotic.com</a></p>
       <p>Réponse sous 24h</p>
     </div>
 
@@ -97,7 +106,6 @@
 </footer>
 
 <script>
-  // Initialisation de AOS
   AOS.init({
     duration: 1000,
     once: true,
@@ -106,4 +114,4 @@
 </script>
 
 </body>
-                  </html>
+                                    </html>
