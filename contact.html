@@ -6,7 +6,6 @@
 <title>Contact – WebMotic</title>
 <link rel="stylesheet" href="style.css">
 
-<!-- AOS animation -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
@@ -24,18 +23,62 @@
 </header>
 
 <section class="page">
-  <h2 data-aos="fade-down">Contact</h2>
 
-  <p data-aos="fade-up" data-aos-delay="200">
-    Une question ? Un projet ? Écrivez-nous.
-  </p>
+  <h2 data-aos="fade-down">Contactez-nous</h2>
+  <p data-aos="fade-up">Une question ? Un projet ? Nous sommes là pour vous répondre.</p>
 
-  <p data-aos="fade-up" data-aos-delay="400">
-    <strong>Email :</strong><br>
-    <a href="mailto:contact@webmotic.com" class="contact-email" data-aos="fade-up" data-aos-delay="500">
+  <!-- Bloc email -->
+  <div data-aos="fade-up" style="margin-top:40px;">
+    <p style="font-size:20px;">
+      📧 <strong>Email :</strong>
+    </p>
+    <a href="mailto:contact@webmotic.com" class="contact-email">
       contact@webmotic.com
     </a>
-  </p>
+
+    <div style="margin-top:25px;">
+      <a href="mailto:contact@webmotic.com" class="btn" style="border:2px solid #d4af37;padding:12px 30px;border-radius:30px;text-decoration:none;color:#d4af37;font-weight:bold;">
+        Envoyer un email
+      </a>
+    </div>
+  </div>
+
+  <!-- Carte -->
+  <div data-aos="fade-up" style="margin:60px 0;">
+    <h3>Notre localisation</h3>
+    <iframe
+      src="https://www.google.com/maps?q=Netherlands&output=embed"
+      width="100%"
+      height="300"
+      style="border-radius:12px;border:1px solid #d4af37;"
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <!-- Formulaire -->
+  <div data-aos="zoom-in">
+    <h3>Envoyez-nous un message</h3>
+
+    <form
+      action="https://formspree.io/f/mzdekjea"
+      method="POST"
+      class="form-devis"
+    >
+
+      <label>Nom</label>
+      <input type="text" name="nom" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Message</label>
+      <textarea name="message" rows="5" required></textarea>
+
+      <button type="submit">Envoyer</button>
+
+    </form>
+  </div>
+
 </section>
 
 <footer class="footer" data-aos="fade-in">
@@ -57,11 +100,7 @@
 
     <div class="footer-contact">
       <h4>Contact</h4>
-      <p>
-        <a href="mailto:contact@webmotic.com" class="contact-email">
-          contact@webmotic.com
-        </a>
-      </p>
+      <p><a href="mailto:contact@webmotic.com">contact@webmotic.com</a></p>
       <p>Réponse sous 24h</p>
     </div>
 
@@ -72,15 +111,9 @@
   </div>
 </footer>
 
-<script src="style.js"></script>
-
 <script>
-AOS.init({
-  duration: 1000,
-  once: true,
-  offset: 100
-});
+AOS.init({ duration:1000, once:true, offset:100 });
 </script>
 
 </body>
-        </html>
+      </html>
