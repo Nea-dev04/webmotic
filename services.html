@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <title>Services – WebMotic</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- AOS animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 
 <header>
-  <h1 class="logo">WebMotic</h1>
-  <nav>
+  <h1 class="logo" data-aos="fade-right">WebMotic</h1>
+  <nav data-aos="fade-down">
     <a href="index.html">Accueil</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
@@ -19,16 +23,17 @@
 </header>
 
 <section class="page">
-  <h2>Nos services</h2>
+  <h2 data-aos="fade-down">Nos services</h2>
+
   <ul>
-    <li>Création de sites vitrines</li>
-    <li>Boutiques e-commerce</li>
-    <li>Landing pages</li>
-    <li>Refonte et optimisation</li>
+    <li data-aos="fade-up" data-aos-delay="100">Création de sites vitrines</li>
+    <li data-aos="fade-up" data-aos-delay="250">Boutiques e-commerce</li>
+    <li data-aos="fade-up" data-aos-delay="400">Landing pages</li>
+    <li data-aos="fade-up" data-aos-delay="550">Refonte et optimisation</li>
   </ul>
 </section>
 
-<footer class="footer">
+<footer class="footer" data-aos="fade-in">
   <div class="footer-container">
 
     <div class="footer-brand">
@@ -59,5 +64,14 @@
 </footer>
 
 <script src="style.js"></script>
+
+<script>
+AOS.init({
+  duration: 1000,
+  once: true,
+  offset: 100
+});
+</script>
+
 </body>
-</html>
+  </html>
