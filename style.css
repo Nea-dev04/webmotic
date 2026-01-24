@@ -99,10 +99,22 @@ header nav a:hover {
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .card h3 {
   color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #555;
+  font-size: 16px;
 }
 
 /* FOOTER */
@@ -127,6 +139,7 @@ header nav a:hover {
 .footer a {
   color: var(--gold);
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .footer a:hover {
@@ -173,6 +186,12 @@ header nav a:hover {
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-devis button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212,175,55,0.6);
 }
 
 /* EMAIL CONTACT */
@@ -189,9 +208,50 @@ header nav a:hover {
   text-decoration: underline;
 }
 
+/* CARTES & FORMULAIRES 3D */
+.form-card {
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
+
   header {
     flex-direction: column;
+    align-items: flex-start;
   }
-    }
+
+  header nav {
+    margin-top: 15px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .features {
+    gap: 25px;
+  }
+
+  .card, .form-card {
+    padding: 20px;
+  }
+
+  .page {
+    margin: 50px 15px;
+    padding: 0 10px;
+  }
+  }
