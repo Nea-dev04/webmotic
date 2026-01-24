@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <title>Portfolio – WebMotic</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- AOS animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 
 <header>
-  <h1 class="logo">WebMotic</h1>
-  <nav>
+  <h1 class="logo" data-aos="fade-right">WebMotic</h1>
+  <nav data-aos="fade-down">
     <a href="index.html">Accueil</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
@@ -19,11 +23,15 @@
 </header>
 
 <section class="page">
-  <h2>Nos réalisations</h2>
-  <p>Découvrez nos projets récents.</p>
+  <h2 data-aos="fade-down">Nos réalisations</h2>
+  <p data-aos="fade-up" data-aos-delay="200">
+    Découvrez nos projets récents.
+  </p>
+
+  <!-- Tu pourras plus tard ajouter ici des cartes de projets -->
 </section>
 
-<footer class="footer">
+<footer class="footer" data-aos="fade-in">
   <div class="footer-container">
 
     <div class="footer-brand">
@@ -54,6 +62,14 @@
 </footer>
 
 <script src="style.js"></script>
+
+<script>
+AOS.init({
+  duration: 1000,
+  once: true,
+  offset: 100
+});
+</script>
+
 </body>
-</html></body>
-</html>
+  </html>
