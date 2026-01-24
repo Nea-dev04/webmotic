@@ -1,22 +1,23 @@
 <section class="page">
 
-  <h2>Demande de devis</h2>
-  <p>Expliquez-nous votre projet. Nous vous répondrons sous 24h.</p>
+  <h2 data-aos="fade-down">Demande de devis</h2>
+  <p data-aos="fade-up">Expliquez-nous votre projet. Nous vous répondrons sous 24h.</p>
 
-<form 
-  action="https://formspree.io/f/mzdekjea" 
-  method="POST"
-  class="form-devis"
->
+  <form 
+    action="https://formspree.io/f/mzdekjea" 
+    method="POST"
+    class="form-devis"
+    data-aos="zoom-in"
+  >
 
     <label>Nom</label>
-    <input type="text" name="nom" required>
+    <input type="text" name="nom" placeholder="Votre nom" required>
 
     <label>Email</label>
-    <input type="email" name="email" required>
+    <input type="email" name="email" placeholder="Votre email" required>
 
     <label>Nom de l’entreprise (optionnel)</label>
-    <input type="text" name="entreprise">
+    <input type="text" name="entreprise" placeholder="Nom de votre société">
 
     <label>Type de projet</label>
     <select name="type_projet" required>
@@ -37,10 +38,10 @@
     </select>
 
     <label>Description du projet</label>
-    <textarea name="message" rows="6" required></textarea>
+    <textarea name="message" rows="6" placeholder="Décrivez votre projet..." required></textarea>
 
     <button type="submit">Envoyer ma demande</button>
 
   </form>
 
-</section>
+                                 </section>
