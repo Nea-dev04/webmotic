@@ -1,73 +1,42 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>Devis – WebMotic</title>
-<link rel="stylesheet" href="style.css">
-
-<!-- AOS animation -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-</head>
-<body>
-
-<header>
-  <h1 class="logo" data-aos="fade-right">WebMotic</h1>
-  <nav data-aos="fade-down">
-    <a href="index.html">Accueil</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="devis.html">Devis</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
 <section class="page">
-  <h2 data-aos="fade-down">Demande de devis</h2>
-  <p data-aos="fade-up" data-aos-delay="200">
-    Expliquez-nous votre projet et nous vous répondrons rapidement.
-  </p>
+
+  <h2>Demande de devis</h2>
+  <p>Expliquez-nous votre projet. Nous vous répondrons sous 24h.</p>
+
+  <form action="https://formspree.io/f/mzdekjea" method="POST" class="form-devis">
+
+    <label>Nom</label>
+    <input type="text" name="nom" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Nom de l’entreprise (optionnel)</label>
+    <input type="text" name="entreprise">
+
+    <label>Type de projet</label>
+    <select name="type_projet" required>
+      <option value="">-- Choisissez --</option>
+      <option>Site vitrine</option>
+      <option>Boutique en ligne</option>
+      <option>Landing page</option>
+      <option>Refonte de site</option>
+      <option>Autre</option>
+    </select>
+
+    <label>Budget estimé</label>
+    <select name="budget">
+      <option>Moins de 300€</option>
+      <option>300 – 800€</option>
+      <option>800 – 1500€</option>
+      <option>1500€+</option>
+    </select>
+
+    <label>Description du projet</label>
+    <textarea name="message" rows="6" required></textarea>
+
+    <button type="submit">Envoyer ma demande</button>
+
+  </form>
+
 </section>
-
-<footer class="footer" data-aos="fade-in">
-  <div class="footer-container">
-
-    <div class="footer-brand">
-      <h3>WebMotic</h3>
-      <p>Agence de création de sites web modernes</p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Navigation</h4>
-      <a href="index.html">Accueil</a>
-      <a href="services.html">Services</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="devis.html">Devis</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p>contact@webmotic.com</p>
-      <p>Réponse sous 24h</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 – WebMotic · Design · Performance · Simplicité
-  </div>
-</footer>
-
-<script src="style.js"></script>
-
-<script>
-AOS.init({
-  duration: 1000,
-  once: true,
-  offset: 100
-});
-</script>
-
-</body>
-  </html>
