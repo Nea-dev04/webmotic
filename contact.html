@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact – WebMotic</title>
-
 <link rel="stylesheet" href="style.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 
@@ -22,48 +21,45 @@
     <a href="contact.html">Contact</a>
   </nav>
 
+  <!-- Bouton Dark / Light -->
   <button id="theme-toggle" class="theme-toggle">🌙</button>
 </header>
 
 <section class="page">
+  <h2 data-aos="fade-down">Contactez-nous</h2>
+  <p data-aos="fade-up">Une question ? Un projet ? Nous sommes là pour vous répondre.</p>
 
-  <div class="card glass" data-aos="fade-down">
-    <h2>Contactez-nous</h2>
-    <p>Une question ? Un projet ? Nous sommes là pour vous répondre.</p>
-  </div>
-
-  <!-- Email -->
-  <div class="card glass" data-aos="fade-up">
-    <h3>Contact par email</h3>
-    <p class="contact-email">contact@webmotic.com</p>
-
-    <a href="mailto:contact@webmotic.com" class="btn-neutral">
-      Envoyer un email
+  <!-- Bloc email -->
+  <div class="card glass" data-aos="fade-up" style="margin-top:40px; text-align:center;">
+    <p style="font-size:20px; margin-bottom:15px;">
+      📧 <strong>Email :</strong>
+    </p>
+    <a href="mailto:contact@webmotic.com" class="contact-email" style="font-size:18px;">
+      contact@webmotic.com
     </a>
   </div>
 
-  <!-- Map -->
-  <div class="card glass" data-aos="fade-up">
+  <!-- Carte localisation -->
+  <div class="card glass" data-aos="fade-up" style="margin:60px 0;">
     <h3>Notre localisation</h3>
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps?q=Netherlands&output=embed"
-        width="100%"
-        height="300"
-        loading="lazy">
-      </iframe>
-    </div>
+    <iframe
+      src="https://www.google.com/maps?q=Netherlands&output=embed"
+      width="100%"
+      height="300"
+      style="border-radius:12px; border:1px solid rgba(0,0,0,0.1);"
+      loading="lazy">
+    </iframe>
   </div>
 
   <!-- Formulaire -->
-  <div class="card glass" data-aos="zoom-in">
+  <div class="card glass" data-aos="zoom-in" style="margin-bottom:60px;">
     <h3>Envoyez-nous un message</h3>
 
     <form
       action="https://formspree.io/f/mzdekjea"
       method="POST"
-      class="form-devis">
-
+      class="form-devis"
+    >
       <label>Nom</label>
       <input type="text" name="nom" required>
 
@@ -79,14 +75,15 @@
 
 </section>
 
-<footer class="footer glass">
+<footer class="footer glass" data-aos="fade-in">
   <div class="footer-container">
-    <div>
+
+    <div class="footer-brand">
       <h3>WebMotic</h3>
       <p>Agence de création de sites web modernes</p>
     </div>
 
-    <div>
+    <div class="footer-links">
       <h4>Navigation</h4>
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
@@ -95,21 +92,24 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <div>
+    <div class="footer-contact">
       <h4>Contact</h4>
-      <p>contact@webmotic.com</p>
+      <p><a href="mailto:contact@webmotic.com" class="contact-email">contact@webmotic.com</a></p>
       <p>Réponse sous 24h</p>
     </div>
+
   </div>
 
-  <p class="footer-bottom">© 2026 – WebMotic</p>
+  <div class="footer-bottom">
+    © 2026 – WebMotic · Design · Performance · Simplicité
+  </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 1000, once: true });
+AOS.init({ duration:1000, once:true, offset:100 });
 </script>
 
+<!-- SCRIPT THEME DARK / LIGHT -->
 <script>
 const toggle = document.getElementById("theme-toggle");
 const body = document.body;
@@ -117,11 +117,13 @@ const body = document.body;
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark");
   toggle.textContent = "☀️";
+} else {
+  body.classList.remove("dark");
+  toggle.textContent = "🌙";
 }
 
 toggle.addEventListener("click", () => {
   body.classList.toggle("dark");
-
   if (body.classList.contains("dark")) {
     localStorage.setItem("theme", "dark");
     toggle.textContent = "☀️";
@@ -133,4 +135,4 @@ toggle.addEventListener("click", () => {
 </script>
 
 </body>
-    </html>
+  </html>
