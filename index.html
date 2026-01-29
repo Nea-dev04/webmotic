@@ -2,28 +2,19 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebMotic – Agence Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- AOS animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-  <script>
-const toggle = document.getElementById("theme-toggle");
-const body = document.body;
 
-if(localStorage.getItem("theme") === "dark"){
-  body.classList.add("dark");
-}
-
-toggle.onclick = () => {
-  body.classList.toggle("dark");
-  localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-}
-  </script>
 <body>
 
-<header>
+<header class="glass">
   <h1 class="logo" data-aos="fade-right">WebMotic</h1>
 
   <nav data-aos="fade-down">
@@ -34,38 +25,41 @@ toggle.onclick = () => {
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Bouton Dark / Light -->
+  <!-- Bouton thème -->
   <button id="theme-toggle" class="theme-toggle">🌙</button>
 </header>
 
 <section class="hero">
-  <h2 data-aos="fade-down" data-aos-delay="200">Agence de création de sites web modernes</h2>
-  <p data-aos="fade-up" data-aos-delay="400">Design premium – Performance – Simplicité</p>
-  <a class="btn" href="devis.html" data-aos="zoom-in" data-aos-delay="600">Demander un devis</a>
+  <h2 data-aos="fade-down">Agence de création de sites web modernes</h2>
+  <p data-aos="fade-up">Design premium – Performance – Simplicité</p>
+  <a class="btn" href="devis.html" data-aos="zoom-in">Demander un devis</a>
 </section>
 
 <section class="features">
-  <div class="card" data-aos="fade-up" data-aos-delay="100">
+  <div class="card glass" data-aos="fade-up">
     <h3>Design Premium</h3>
     <p>Un rendu élégant et professionnel.</p>
   </div>
-  <div class="card" data-aos="fade-up" data-aos-delay="300">
+
+  <div class="card glass" data-aos="fade-up" data-aos-delay="200">
     <h3>Sites rapides</h3>
     <p>Optimisés pour le référencement et la performance.</p>
   </div>
-  <div class="card" data-aos="fade-up" data-aos-delay="500">
+
+  <div class="card glass" data-aos="fade-up" data-aos-delay="400">
     <h3>Sur mesure</h3>
     <p>Chaque projet est unique.</p>
   </div>
 </section>
 
-<footer class="footer" data-aos="fade-in">
+<footer class="footer glass" data-aos="fade-in">
   <div class="footer-container">
-    <div class="footer-brand">
+    <div>
       <h3>WebMotic</h3>
       <p>Agence de création de sites web modernes</p>
     </div>
-    <div class="footer-links">
+
+    <div>
       <h4>Navigation</h4>
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
@@ -73,24 +67,47 @@ toggle.onclick = () => {
       <a href="devis.html">Devis</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="footer-contact">
+
+    <div>
       <h4>Contact</h4>
-      <p>
-        <a href="mailto:contact@webmotic.com" class="contact-email">
-          contact@webmotic.com
-        </a>
-      </p>
+      <a href="mailto:contact@webmotic.com">contact@webmotic.com</a>
       <p>Réponse sous 24h</p>
     </div>
   </div>
-  <div class="footer-bottom">
+
+  <p class="copyright">
     © 2026 – WebMotic · Design · Performance · Simplicité
-  </div>
+  </p>
 </footer>
 
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration:1000, once:true, offset:100 });
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+<!-- THEME SCRIPT (PLACÉ AU BON ENDROIT) -->
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
+    toggle.textContent = "☀️";
+  }
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+      toggle.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "light");
+      toggle.textContent = "🌙";
+    }
+  });
 </script>
 
 </body>
-</html>
+    </html>
