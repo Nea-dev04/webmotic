@@ -26,7 +26,9 @@
   </nav>
 
   <!-- Bouton thème -->
-  <button id="theme-toggle" class="theme-toggle">🌙</button>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+    🌙
+  </button>
 </header>
 
 <section class="hero">
@@ -83,14 +85,18 @@
 <!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 1000, once: true });
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
 </script>
 
-<!-- THEME SCRIPT (PLACÉ AU BON ENDROIT) -->
+<!-- Theme toggle -->
 <script>
   const toggle = document.getElementById("theme-toggle");
   const body = document.body;
 
+  // Charger le thème sauvegardé
   if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark");
     toggle.textContent = "☀️";
@@ -110,4 +116,4 @@
 </script>
 
 </body>
-    </html>
+</html>
