@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<header>
+<header class="glass">
   <h1 class="logo" data-aos="fade-right">WebMotic</h1>
 
   <nav data-aos="fade-down">
@@ -49,7 +49,7 @@
   </div>
 </section>
 
-<footer class="footer" data-aos="fade-in">
+<footer class="footer glass" data-aos="fade-in">
   <div class="footer-container">
     <div class="footer-brand">
       <h3>WebMotic</h3>
@@ -81,6 +81,33 @@
 
 <script>
   AOS.init({ duration:1000, once:true, offset:100 });
+</script>
+
+<!-- SCRIPT THEME DARK / LIGHT -->
+<script>
+const toggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Appliquer le thème stocké au chargement
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark");
+  toggle.textContent = "☀️";
+} else {
+  body.classList.remove("dark");
+  toggle.textContent = "🌙";
+}
+
+// Changer le thème au clic
+toggle.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    toggle.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    toggle.textContent = "🌙";
+  }
+});
 </script>
 
 </body>
