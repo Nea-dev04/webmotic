@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>WebMotic – Agence Web</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>WebMotic – Agence Web</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 
-  <!-- AOS animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- AOS animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+/* MENU BURGER */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: inherit;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(255,255,255,0.05);
+    width: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+    backdrop-filter: blur(10px);
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -17,18 +60,21 @@
 <header class="glass">
   <h1 class="logo" data-aos="fade-right">WebMotic</h1>
 
+  <!-- Bouton menu burger -->
+  <button class="nav-toggle" id="nav-toggle">☰</button>
+
   <nav data-aos="fade-down">
-    <a href="index.html">Accueil</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="devis.html">Devis</a>
-    <a href="contact.html">Contact</a>
+    <ul id="nav-menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="devis.html">Devis</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </nav>
 
   <!-- Bouton thème -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
-    🌙
-  </button>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">🌙</button>
 </header>
 
 <section class="hero">
@@ -85,35 +131,27 @@
 <!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
-</script>
+AOS.init({ duration: 1000, once: true });
 
-<!-- Theme toggle -->
-<script>
-  const toggle = document.getElementById("theme-toggle");
-  const body = document.body;
+// Theme toggle
+const toggle = document.getElementById("theme-toggle");
+const body = document.body;
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark");
+  toggle.textContent = "☀️";
+}
+toggle.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+});
 
-  // Charger le thème sauvegardé
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark");
-    toggle.textContent = "☀️";
-  }
-
-  toggle.addEventListener("click", () => {
-    body.classList.toggle("dark");
-
-    if (body.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
-      toggle.textContent = "☀️";
-    } else {
-      localStorage.setItem("theme", "light");
-      toggle.textContent = "🌙";
-    }
-  });
+// Menu burger
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+});
 </script>
 
 </body>
-</html>
+  </html>
