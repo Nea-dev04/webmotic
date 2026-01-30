@@ -7,18 +7,67 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<style>
+/* MENU BURGER */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: inherit;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(255,255,255,0.05);
+    width: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+    backdrop-filter: blur(10px);
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+</style>
+
 </head>
 <body>
 
 <header class="glass">
   <h1 class="logo" data-aos="fade-right">WebMotic</h1>
 
+  <!-- Bouton menu burger -->
+  <button class="nav-toggle" id="nav-toggle">☰</button>
+
   <nav data-aos="fade-down">
-    <a href="index.html">Accueil</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="devis.html">Devis</a>
-    <a href="contact.html">Contact</a>
+    <ul id="nav-menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="devis.html">Devis</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </nav>
 
   <!-- Bouton Dark / Light -->
@@ -77,7 +126,6 @@
 
 <footer class="footer glass" data-aos="fade-in">
   <div class="footer-container">
-
     <div class="footer-brand">
       <h3>WebMotic</h3>
       <p>Agence de création de sites web modernes</p>
@@ -97,7 +145,6 @@
       <p><a href="mailto:contact@webmotic.com" class="contact-email">contact@webmotic.com</a></p>
       <p>Réponse sous 24h</p>
     </div>
-
   </div>
 
   <div class="footer-bottom">
@@ -107,10 +154,8 @@
 
 <script>
 AOS.init({ duration:1000, once:true, offset:100 });
-</script>
 
-<!-- SCRIPT THEME DARK / LIGHT -->
-<script>
+// SCRIPT THEME DARK / LIGHT
 const toggle = document.getElementById("theme-toggle");
 const body = document.body;
 
@@ -130,9 +175,16 @@ toggle.addEventListener("click", () => {
   } else {
     localStorage.setItem("theme", "light");
     toggle.textContent = "🌙";
-  }
+});
+
+// SCRIPT MENU BURGER
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
 });
 </script>
 
 </body>
-  </html>
+</html>
