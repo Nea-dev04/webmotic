@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Devis – WebMotic</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devis – WebMotic</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 
 <header class="glass">
   <h1 class="logo" data-aos="fade-right">WebMotic</h1>
 
-  <!-- Bouton menu burger -->
-  <button class="nav-toggle" id="nav-toggle">☰</button>
+  <!-- Burger menu -->
+  <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
 
-  <nav data-aos="fade-down">
-    <ul id="nav-menu">
+  <nav>
+    <ul class="nav-menu">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -36,12 +36,9 @@
     Expliquez-nous votre projet. Nous vous répondrons sous 24h.
   </p>
 
-  <div class="form-card" data-aos="zoom-in">
-    <form 
-      action="https://formspree.io/f/mzdekjea" 
-      method="POST"
-      class="form-devis"
-    >
+  <div class="form-card glass" data-aos="zoom-in">
+    <form action="https://formspree.io/f/mzdekjea" method="POST" class="form-devis">
+
       <label>Nom</label>
       <input type="text" name="nom" placeholder="Votre nom" required>
 
@@ -73,6 +70,7 @@
       <textarea name="message" rows="6" placeholder="Décrivez votre projet..." required></textarea>
 
       <button type="submit">Envoyer ma demande</button>
+
     </form>
   </div>
 </section>
@@ -93,7 +91,7 @@
     </div>
     <div class="footer-contact">
       <h4>Contact</h4>
-      <a href="mailto:contact@webmotic.com">contact@webmotic.com</a>
+      <p><a href="mailto:contact@webmotic.com">contact@webmotic.com</a></p>
       <p>Réponse sous 24h</p>
     </div>
   </div>
@@ -103,10 +101,14 @@
 </footer>
 
 <script>
-  // AOS
   AOS.init({ duration:1000, once:true, offset:100 });
 
-  // Theme Dark / Light
+  // Menu burger
+  const navToggle = document.querySelector(".nav-toggle");
+  const navMenu = document.querySelector(".nav-menu");
+  navToggle.addEventListener("click", () => navMenu.classList.toggle("show"));
+
+  // Dark / Light
   const toggle = document.getElementById("theme-toggle");
   const body = document.body;
   if (localStorage.getItem("theme") === "dark") {
@@ -115,22 +117,10 @@
   }
   toggle.addEventListener("click", () => {
     body.classList.toggle("dark");
-    if (body.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
-      toggle.textContent = "☀️";
-    } else {
-      localStorage.setItem("theme", "light");
-      toggle.textContent = "🌙";
-    }
-  });
-
-  // Menu burger
-  const navToggle = document.getElementById("nav-toggle");
-  const navMenu = document.getElementById("nav-menu");
-  navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
+    toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+    localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
   });
 </script>
 
 </body>
-          </html>
+  </html>
