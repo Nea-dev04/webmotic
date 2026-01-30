@@ -1,56 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact – WebMotic</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<style>
-/* MENU BURGER */
-.nav-toggle {
-  display: none;
-  cursor: pointer;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: inherit;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-nav ul li a {
-  text-decoration: none;
-  color: inherit;
-}
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(255,255,255,0.05);
-    width: 200px;
-    padding: 20px;
-    border-radius: 12px;
-    display: none;
-    backdrop-filter: blur(10px);
-  }
-  nav ul.show {
-    display: flex;
-  }
-  .nav-toggle {
-    display: block;
-  }
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – WebMotic</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 
@@ -76,7 +32,9 @@ nav ul li a {
 
 <section class="page">
   <h2 data-aos="fade-down">Contactez-nous</h2>
-  <p data-aos="fade-up">Une question ? Un projet ? Nous sommes là pour vous répondre.</p>
+  <p data-aos="fade-up">
+    Une question ? Un projet ? Nous sommes là pour vous répondre.
+  </p>
 
   <!-- Bloc email -->
   <div class="card glass" data-aos="fade-up" style="margin-top:40px; text-align:center;">
@@ -103,12 +61,7 @@ nav ul li a {
   <!-- Formulaire -->
   <div class="card glass" data-aos="zoom-in" style="margin-bottom:60px;">
     <h3>Envoyez-nous un message</h3>
-
-    <form
-      action="https://formspree.io/f/mzdekjea"
-      method="POST"
-      class="form-devis"
-    >
+    <form action="https://formspree.io/f/mzdekjea" method="POST" class="form-devis">
       <label>Nom</label>
       <input type="text" name="nom" required>
 
@@ -121,7 +74,6 @@ nav ul li a {
       <button type="submit">Envoyer</button>
     </form>
   </div>
-
 </section>
 
 <footer class="footer glass" data-aos="fade-in">
@@ -130,7 +82,6 @@ nav ul li a {
       <h3>WebMotic</h3>
       <p>Agence de création de sites web modernes</p>
     </div>
-
     <div class="footer-links">
       <h4>Navigation</h4>
       <a href="index.html">Accueil</a>
@@ -139,52 +90,46 @@ nav ul li a {
       <a href="devis.html">Devis</a>
       <a href="contact.html">Contact</a>
     </div>
-
     <div class="footer-contact">
       <h4>Contact</h4>
-      <p><a href="mailto:contact@webmotic.com" class="contact-email">contact@webmotic.com</a></p>
+      <p><a href="mailto:contact@webmotic.com">contact@webmotic.com</a></p>
       <p>Réponse sous 24h</p>
     </div>
   </div>
-
   <div class="footer-bottom">
     © 2026 – WebMotic · Design · Performance · Simplicité
   </div>
 </footer>
 
 <script>
-AOS.init({ duration:1000, once:true, offset:100 });
+  // AOS
+  AOS.init({ duration:1000, once:true, offset:100 });
 
-// SCRIPT THEME DARK / LIGHT
-const toggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark");
-  toggle.textContent = "☀️";
-} else {
-  body.classList.remove("dark");
-  toggle.textContent = "🌙";
-}
-
-toggle.addEventListener("click", () => {
-  body.classList.toggle("dark");
-  if (body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
+  // Theme Dark / Light
+  const toggle = document.getElementById("theme-toggle");
+  const body = document.body;
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
     toggle.textContent = "☀️";
-  } else {
-    localStorage.setItem("theme", "light");
-    toggle.textContent = "🌙";
-});
+  }
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+      toggle.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "light");
+      toggle.textContent = "🌙";
+    }
+  });
 
-// SCRIPT MENU BURGER
-const navToggle = document.getElementById("nav-toggle");
-const navMenu = document.getElementById("nav-menu");
-
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
-});
+  // Menu burger
+  const navToggle = document.getElementById("nav-toggle");
+  const navMenu = document.getElementById("nav-menu");
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
 </script>
 
 </body>
-  </html>
+    </html>
