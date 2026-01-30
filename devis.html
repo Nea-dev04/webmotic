@@ -103,12 +103,14 @@
 <script>
   AOS.init({ duration:1000, once:true, offset:100 });
 
-  // Menu burger
+  // MENU BURGER
   const navToggle = document.querySelector(".nav-toggle");
   const navMenu = document.querySelector(".nav-menu");
-  navToggle.addEventListener("click", () => navMenu.classList.toggle("show"));
+  if(navToggle && navMenu){
+    navToggle.addEventListener("click", () => navMenu.classList.toggle("show"));
+  }
 
-  // Dark / Light
+  // DARK / LIGHT
   const toggle = document.getElementById("theme-toggle");
   const body = document.body;
   if (localStorage.getItem("theme") === "dark") {
