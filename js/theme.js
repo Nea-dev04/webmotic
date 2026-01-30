@@ -1,3 +1,6 @@
+// =========================
+// THEME DARK / LIGHT
+// =========================
 const toggle = document.getElementById("theme-toggle");
 const body = document.body;
 
@@ -14,3 +17,15 @@ if (toggle) {
     );
   };
 }
+
+// =========================
+// BURGER MENU MOBILE
+// =========================
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector("nav ul");
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+  }
