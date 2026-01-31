@@ -2,69 +2,20 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>WebMotic – Agence Web</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- CSS -->
+<title>WebMotic – Agence Web</title>
 <link rel="stylesheet" href="style.css">
-
-<!-- AOS animation -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<style>
-/* MENU BURGER */
-.nav-toggle {
-  display: none;
-  cursor: pointer;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: inherit;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-nav ul li a {
-  text-decoration: none;
-  color: inherit;
-}
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(255,255,255,0.05);
-    width: 200px;
-    padding: 20px;
-    border-radius: 12px;
-    display: none;
-    backdrop-filter: blur(10px);
-  }
-  nav ul.show {
-    display: flex;
-  }
-  .nav-toggle {
-    display: block;
-  }
-}
-</style>
 </head>
-
 <body>
 
 <header class="glass">
   <h1 class="logo" data-aos="fade-right">WebMotic</h1>
 
-  <!-- Bouton menu burger -->
   <button class="nav-toggle" id="nav-toggle">☰</button>
 
   <nav data-aos="fade-down">
-    <ul id="nav-menu">
+    <ul class="nav-menu" id="nav-menu">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -73,8 +24,7 @@ nav ul li a {
     </ul>
   </nav>
 
-  <!-- Bouton thème -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">🌙</button>
+  <button id="theme-toggle" class="theme-toggle">🌙</button>
 </header>
 
 <section class="hero">
@@ -88,12 +38,10 @@ nav ul li a {
     <h3>Design Premium</h3>
     <p>Un rendu élégant et professionnel.</p>
   </div>
-
   <div class="card glass" data-aos="fade-up" data-aos-delay="200">
     <h3>Sites rapides</h3>
     <p>Optimisés pour le référencement et la performance.</p>
   </div>
-
   <div class="card glass" data-aos="fade-up" data-aos-delay="400">
     <h3>Sur mesure</h3>
     <p>Chaque projet est unique.</p>
@@ -106,7 +54,6 @@ nav ul li a {
       <h3>WebMotic</h3>
       <p>Agence de création de sites web modernes</p>
     </div>
-
     <div>
       <h4>Navigation</h4>
       <a href="index.html">Accueil</a>
@@ -115,20 +62,15 @@ nav ul li a {
       <a href="devis.html">Devis</a>
       <a href="contact.html">Contact</a>
     </div>
-
     <div>
       <h4>Contact</h4>
       <a href="mailto:contact@webmotic.com">contact@webmotic.com</a>
       <p>Réponse sous 24h</p>
     </div>
   </div>
-
-  <p class="copyright">
-    © 2026 – WebMotic · Design · Performance · Simplicité
-  </p>
+  <p class="footer-bottom">© 2026 – WebMotic · Design · Performance · Simplicité</p>
 </footer>
 
-<!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init({ duration: 1000, once: true });
@@ -136,7 +78,7 @@ AOS.init({ duration: 1000, once: true });
 // Theme toggle
 const toggle = document.getElementById("theme-toggle");
 const body = document.body;
-if (localStorage.getItem("theme") === "dark") {
+if(localStorage.getItem("theme") === "dark") {
   body.classList.add("dark");
   toggle.textContent = "☀️";
 }
@@ -145,13 +87,11 @@ toggle.addEventListener("click", () => {
   toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
 });
 
-// Menu burger
+// Burger menu
 const navToggle = document.getElementById("nav-toggle");
 const navMenu = document.getElementById("nav-menu");
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
-});
+navToggle.addEventListener("click", () => navMenu.classList.toggle("show"));
 </script>
 
 </body>
-  </html>
+      </html>
