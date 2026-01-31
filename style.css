@@ -16,7 +16,7 @@ body.dark {
   --text: #ffffff;
   --muted: #b0b0b0;
   --accent: #ffffff;
-  --glass: rgba(20,25,40,0.65);
+  --glass: rgba(20,25,40,0.85); /* Plus opaque en sombre */
   --border: rgba(255,255,255,0.1);
   --shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
@@ -35,11 +35,12 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
-  transition: 0.4s;
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden; /* Évite le scroll horizontal bizarre sur mobile */
 }
 
 /* ==========================
-   GLASS
+   GLASS EFFECT
 ========================== */
 .glass {
   background: var(--glass);
@@ -57,34 +58,31 @@ header {
   position: sticky;
   top: 20px;
   margin: 20px;
-  padding: 18px 40px;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 9999;
+  z-index: 10000; /* Toujours au-dessus */
 }
 
 .logo {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
   letter-spacing: -1px;
 }
 
-nav {
-  position: relative;
-}
-
+/* NAVIGATION DESKTOP */
 nav ul {
   display: flex;
   list-style: none;
-  gap: 28px;
+  gap: 25px;
 }
 
 nav ul li a {
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
-  opacity: 0.8;
+  opacity: 0.7;
   transition: 0.3s;
 }
 
@@ -93,55 +91,52 @@ nav ul li a:hover {
 }
 
 /* ==========================
-   BURGER MENU
+   BURGER MENU (MOBILE ONLY)
 ========================== */
 .nav-toggle {
-  display: none;
-  font-size: 28px;
+  display: none; /* Caché sur PC */
   background: none;
   border: none;
   cursor: pointer;
   color: var(--text);
+  font-size: 32px;
+  order: 2; /* Place le burger à droite */
 }
 
-/* MOBILE BURGER */
 @media (max-width: 800px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  .nav-toggle {
+    display: block;
   }
 
+  /* Le menu devient un volet latéral */
   nav ul {
+    display: none; /* Caché par défaut */
     flex-direction: column;
-    position: fixed;     /* fixe à l'écran */
+    position: fixed;
     top: 0;
-    right: 0;            /* coller à droite */
-    height: 100vh;       /* pleine hauteur */
-    width: 250px;        /* largeur suffisante */
-    background: var(--glass);
-    padding: 80px 20px;  /* espace intérieur */
-    border-radius: 0 0 0 12px;
-    box-shadow: var(--shadow);
-    display: none;
-    flex-direction: column;
-    gap: 30px;
-    z-index: 9999;
-    backdrop-filter: blur(12px);
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    background: var(--bg); /* Utilise la couleur de fond du thème */
+    padding: 100px 40px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    z-index: 999;
+    transition: 0.4s;
+    border-left: 1px solid var(--border);
   }
 
   nav ul.show {
-    display: flex;
+    display: flex; /* Apparaît au clic */
   }
 
   nav ul li a {
-    font-size: 20px;
-    display: block;
-    padding: 10px 0;
+    font-size: 22px;
+    font-weight: 600;
   }
 
-  .nav-toggle {
-    display: block;
+  .theme-toggle {
+    order: 1; /* Place le bouton thème à côté du burger */
+    margin-right: 15px;
   }
 }
 
@@ -149,7 +144,6 @@ nav ul li a:hover {
    THEME BUTTON
 ========================== */
 .theme-toggle {
-  margin-left: 20px;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -158,42 +152,40 @@ nav ul li a:hover {
   color: var(--text);
   font-size: 18px;
   cursor: pointer;
-  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.3s;
 }
 
-.theme-toggle:hover {
-  transform: scale(1.1);
-}
-
 /* ==========================
-   HERO
+   HERO SECTION
 ========================== */
 .hero {
-  padding: 160px 20px 120px;
+  padding: 120px 20px 80px;
   text-align: center;
   max-width: 1000px;
   margin: auto;
 }
 
 .hero h2 {
-  font-size: 64px;
-  line-height: 1.05;
+  font-size: clamp(32px, 8vw, 64px); /* Taille fluide selon l'écran */
+  line-height: 1.1;
   letter-spacing: -2px;
   margin-bottom: 25px;
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: clamp(16px, 4vw, 20px);
   color: var(--muted);
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 /* ==========================
-   BUTTON
+   BUTTONS
 ========================== */
 .btn {
-  padding: 16px 40px;
+  padding: 16px 35px;
   border-radius: 50px;
   background: var(--accent);
   color: var(--bg);
@@ -204,24 +196,8 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-  transform: scale(1.06);
-  opacity: 0.85;
-}
-
-/* ==========================
-   SECTIONS
-========================== */
-.page,
-.features {
-  max-width: 1200px;
-  margin: 120px auto;
-  padding: 0 20px;
-}
-
-.page h2 {
-  font-size: 48px;
-  margin-bottom: 80px;
-  text-align: center;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* ==========================
@@ -229,109 +205,42 @@ nav ul li a:hover {
 ========================== */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
-/* ==========================
-   CARDS
-========================== */
 .card {
-  padding: 50px 40px;
+  padding: 40px;
   transition: 0.4s;
-  position: relative;
 }
 
 .card:hover {
-  transform: translateY(-15px) scale(1.02);
-}
-
-.card h3 {
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: 16px;
-}
-
-/* ==========================
-   FORM
-========================== */
-.form-card {
-  max-width: 600px;
-  margin: auto;
-  padding: 60px 50px;
-}
-
-.form-devis {
-  display: grid;
-  gap: 20px;
-}
-
-.form-devis input,
-.form-devis select,
-.form-devis textarea {
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-}
-
-.form-devis button {
-  margin-top: 15px;
-  padding: 16px;
-  border-radius: 50px;
-  border: none;
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.form-devis button:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
 }
 
 /* ==========================
    FOOTER
 ========================== */
 .footer {
-  margin-top: 150px;
-  padding: 80px 20px 40px;
+  margin-top: 100px;
+  padding: 60px 20px;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
 }
 
-.footer a {
-  color: var(--text);
-  text-decoration: none;
-  opacity: 0.7;
-}
-
-.footer a:hover {
-  opacity: 1;
-}
-
-/* ==========================
-   MOBILE GENERAL
-========================== */
-@media (max-width: 800px) {
-  header {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .hero h2 {
-    font-size: 40px;
-  }
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  opacity: 0.5;
+  font-size: 14px;
    }
+   
