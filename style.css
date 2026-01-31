@@ -65,7 +65,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 9999; /* + haut que tout */
+  z-index: 9999;
 }
 
 .logo {
@@ -97,7 +97,7 @@ nav ul li a:hover {
 }
 
 /* ==========================
-   BURGER MENU
+   BURGER
 ========================== */
 
 .nav-toggle {
@@ -107,41 +107,6 @@ nav ul li a:hover {
   border: none;
   cursor: pointer;
   color: var(--text);
-}
-
-/* MOBILE BURGER */
-@media (max-width: 800px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  nav ul {
-    flex-direction: column;
-    position: absolute;
-    top: 80px;          /* sous le header */
-    right: 20px;
-    background: var(--glass);
-    padding: 20px 25px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    display: none;
-    z-index: 9999;
-    min-width: 200px;
-  }
-
-  nav ul.show {
-    display: flex;
-  }
-
-  nav ul li {
-    margin: 12px 0;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
 }
 
 /* ==========================
@@ -330,20 +295,48 @@ nav ul li a:hover {
 }
 
 /* ==========================
-   MOBILE GENERAL
+   MOBILE FINAL
 ========================== */
 
 @media (max-width: 800px) {
+
   header {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  nav a {
-    margin: 0 12px;
+  .nav-toggle {
+    display: block;
+    z-index: 10000;
+  }
+
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: var(--glass);
+    padding: 20px 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    display: none;
+    z-index: 9999;
+    min-width: 220px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 12px 0;
+    text-align: right;
   }
 
   .hero h2 {
     font-size: 40px;
   }
-     }
+}
