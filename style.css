@@ -59,13 +59,16 @@ body {
 
 header {
   position: sticky;
-  top: 20px;
-  margin: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
   padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 9999;
+  z-index: 9999; /* toujours au-dessus */
+  backdrop-filter: blur(12px);
 }
 
 .logo {
@@ -74,9 +77,13 @@ header {
   letter-spacing: -1px;
 }
 
+/* ==========================
+   NAVIGATION
+========================== */
+
 nav {
   position: relative;
-  z-index: 9999; /* header au-dessus du contenu */
+  z-index: 10;
 }
 
 nav ul {
@@ -89,7 +96,7 @@ nav ul li a {
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
-  opacity: 0.8;
+  opacity: 0.9;
   transition: 0.3s;
 }
 
@@ -111,35 +118,26 @@ nav ul li a:hover {
 }
 
 /* MOBILE BURGER */
-@media (max-width: 800px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
+@media (max-width: 768px) {
   nav ul {
     flex-direction: column;
-    position: fixed; /* fixé pour passer au-dessus de la page */
-    top: 80px;
+    position: absolute;
+    top: 70px;
     right: 20px;
     background: var(--glass);
     padding: 20px 25px;
     border-radius: 12px;
     box-shadow: var(--shadow);
     display: none;
-    z-index: 99999; /* menu mobile toujours au-dessus */
     min-width: 200px;
+    z-index: 9999;
   }
-
   nav ul.show {
     display: flex;
   }
-
   nav ul li {
     margin: 12px 0;
   }
-
   .nav-toggle {
     display: block;
   }
@@ -168,7 +166,7 @@ nav ul li a:hover {
 }
 
 /* ==========================
-   HERO
+   HERO / PAGE
 ========================== */
 
 .hero {
@@ -176,8 +174,6 @@ nav ul li a:hover {
   text-align: center;
   max-width: 1000px;
   margin: auto;
-  position: relative;
-  z-index: 1; /* contenu sous le menu */
 }
 
 .hero h2 {
@@ -218,17 +214,10 @@ nav ul li a:hover {
 ========================== */
 
 .page,
-.features,
-.services,
-.cards,
-.card,
-.form-card,
-.footer {
+.features {
   max-width: 1200px;
   margin: 120px auto;
   padding: 0 20px;
-  position: relative;
-  z-index: 1; /* toujours sous le menu */
 }
 
 .page h2 {
@@ -255,7 +244,6 @@ nav ul li a:hover {
   padding: 50px 40px;
   transition: 0.4s;
   position: relative;
-  z-index: 1; /* sous le menu */
 }
 
 .card:hover {
@@ -320,8 +308,6 @@ nav ul li a:hover {
 .footer {
   margin-top: 150px;
   padding: 80px 20px 40px;
-  position: relative;
-  z-index: 1; /* sous le menu */
 }
 
 .footer-container {
@@ -346,17 +332,20 @@ nav ul li a:hover {
    MOBILE GENERAL
 ========================== */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   header {
     flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
     gap: 15px;
   }
-
-  nav a {
-    margin: 0 12px;
-  }
-
   .hero h2 {
     font-size: 40px;
   }
-     }
+  .features {
+    gap: 25px;
+  }
+  nav ul {
+    right: 10px;
+  }
+   }
